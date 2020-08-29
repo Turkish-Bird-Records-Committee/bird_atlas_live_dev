@@ -179,7 +179,7 @@ class DelimTxt(object):
     def process(self, filename):
         self._openfile(filename)
         evals = [(f.column, f.evaluate) for f in self.filters.values()]
-        writer = csv.writer(sys.stdout, dialect=self.dialect)
+        writer = csv.writer(sys.stdout, dialect=self.dialect, **self.fmtparams)
         if self.has_header:
             writer.writerow(self.headers)
         for row in self.reader:

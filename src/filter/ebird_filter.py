@@ -1,6 +1,9 @@
+import csv
 import pytxtfilter as tf
 
-ebird = tf.DelimTxt("ebird", has_header=True, dialect="excel-tab")
+
+ebird = tf.DelimTxt("ebird", has_header=True, dialect="unix",
+                    delimiter="\t", quoting=csv.QUOTE_NONE)
 
 # breeding filter
 breeding = ebird.create_filter_template(
