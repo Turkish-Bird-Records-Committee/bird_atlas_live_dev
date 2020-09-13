@@ -3,7 +3,7 @@ import pytxtfilter as tf
 
 
 ebird = tf.DelimTxt("ebird", has_header=True, dialect="unix",
-                    delimiter="\t", quoting=csv.QUOTE_NONE)
+                    delimiter="\t", quoting=csv.QUOTE_NONE, escapechar='\\')
 
 # breeding filter
 breeding = ebird.create_filter_template(
