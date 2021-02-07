@@ -2,7 +2,7 @@ import csv
 import pytxtfilter as tf
 
 
-ebird = tf.DelimTxt("ebird", has_header=True, dialect="unix",
+ebird = tf.DelimTxt("ebird", has_header=True, dialect="unix", encoding="UTF-8",
                     delimiter="\t", quoting=csv.QUOTE_NONE, escapechar='\\')
 
 # breeding filter

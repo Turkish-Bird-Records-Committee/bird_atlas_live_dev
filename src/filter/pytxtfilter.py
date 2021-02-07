@@ -131,18 +131,20 @@ class ColumnFilter(Filter):
 class DelimTxt(object):
     """Class doc
     """
-    def __init__(self, name, has_header=False, dialect=None, **fmtparams):
+    def __init__(self, name, has_header=False, dialect=None, encoding=None,
+                 **fmtparams):
         self.name = name
         self.has_header = has_header
         self.headers = None
         self.dialect = dialect
+        self.encoding = encoding
         self.fmtparams = fmtparams
         self.filters = collections.OrderedDict()
         self.filter_templates = {}
 
     def _openfile(self, filename):
         try:
-            self.filehandle = open(filename, newline="")
+            self.filehandle = open(filename, newline="", encoding=self.encoding)
         except IOError as err:
             print(f"Can't open file '{filename}': {err}", file=sys.stderr)
             sys.exit(1)
